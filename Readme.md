@@ -60,11 +60,35 @@ PHP adalah singkatan dari PHP Hypertext Preprocessor dan merupakan bahasa pemrog
 
 - Mulailah menambahkan variabel pada program PHP untuk menyimpan data.
 
+```PHP
+    <h1>Belajar PHP Dasar</h1>
+        <?php
+        echo 'hello world';
+        ?>
+
+        <h2>Menggunakan Variable</h2>
+        <?php
+        $nama = 'Rizky';
+        $nim = 312210576;
+        echo 'Nama : '. $nama . '<br>';
+        echo 'Nim  : '. $nim;
+        ?>
+```
+
 ![Variable PHP](images/Variable_PHP.png)
 
 ### Predefined Variable $\_GET
 
 - Gunakan predefined variable `$_GET` untuk mengambil nilai dari URL.
+
+```PHP
+    <h2>Predefine Variable</h2>
+    <?php
+    echo 'Selamat Datang '.$_GET['nama'];
+    ?>
+```
+
+cara akses : [text](http://127.0.0.1/lab2_php_dasar/php_dasar.php?nama=Muhammad%20Rizky)
 
 ![Predefined Variable](images/Predefined_Variable.png)
 
@@ -73,13 +97,145 @@ PHP adalah singkatan dari PHP Hypertext Preprocessor dan merupakan bahasa pemrog
 - Buatlah form input HTML yang memungkinkan pengguna memasukkan data.
 - Proses data yang dikirimkan dapat ditangani oleh PHP.
 
+```PHP
+<h2>Form Input</h2>
+    <form action="" method="post">
+        <label>Nama :</label>
+        <input type="text" name="nama">
+        <input type="submit" value="kirim">
+    </form>
+
+    <?php
+    echo 'Selamat Datang ' . $_POST['nama'];
+    ?>
+```
+
 ![Form Input](images/Form_Input.png)
 
 ### Operator, Kondisi, dan Perulangan
 
 - Gunakan operator, kondisi (if-elseif-else, switch), dan perulangan (for, while, do-while) untuk mengontrol alur program PHP sesuai kebutuhan.
 
-![Operator, Condition, Loop](images/Operator_Condition_Loop.png)
+* Operator
+
+  ```PHP
+  <h2>Operator</h2>
+   <?php
+   $gaji = 1000000;
+   $pajak = 0.1;
+   $thp = $gaji - ($gaji*$pajak);
+   echo 'Gaji sebelum Pajak = Rp. ' . $gaji . '<br>';
+   echo 'Gaji yang dibawa pulang = Rp. '. $thp .'<br><br>';
+   ?>
+  ```
+
+  ![Operator](images/Operator.png)
+
+* Condition
+
+  - If else
+
+  ```PHP
+  <h2>Condition</h2>
+    <h3>If Else</h3>
+    <?php
+    $nama_hari = date("l");
+    if ($nama_hari == "Sunday") {
+        echo "Minggu <br>";
+    } elseif ($nama_hari == "Monday") {
+        echo "Senin <br>";
+    } else {
+        echo "Selasa <br>";
+    }
+    ?>
+  ```
+
+  ![Condition](images/ifElse.png)
+
+  - Switch Case
+
+  ```PHP
+  <h3>Switch Case</h3>
+    <?php
+    $nama_hari = date("l");
+    switch ($nama_hari) {
+    case "Sunday":
+    echo "Minggu";
+    break;
+    case "Monday":
+    echo "Senin";
+    break;
+    case "Tuesday":
+    echo "Selasa";
+    break;
+    default:
+    echo "Sabtu";
+    }
+    ?>
+  ```
+
+  ![Condition](images/switchCase.png)
+
+* Loop
+
+  - Perulangan For
+
+  ```PHP
+  <h3>Switch Case</h3>
+    <?php
+    echo "Perulangan 1 sampai 10 <br />";
+    for ($i=1; $i<=10; $i++) {
+    echo "Perulangan ke: " . $i . '<br />';
+    }
+    echo "Perulangan Menurun dari 10 ke 1 <br />";
+    for ($i=10; $i>=1; $i--) {
+    echo "Perulangan ke: " . $i . '<br />';
+    }
+    ?>
+    <h3>Perulangan While</h3>
+    <?php
+    echo "Perulangan 1 sampai 10 <br />";
+    $i=1;
+    while ($i<=10) {
+    echo "Perulangan ke: " . $i . '<br />';
+    $i++;
+    }
+    ?>
+  ```
+
+  ![Loop](images/For.png)
+
+  - Perulangan While
+
+  ```PHP
+  <h3>Perulangan While</h3>
+    <?php
+    echo "Perulangan 1 sampai 10 <br />";
+    $i=1;
+    while ($i<=10) {
+    echo "Perulangan ke: " . $i . '<br />';
+    $i++;
+    }
+    ?>
+  ```
+
+  ![Loop](images/While.png)
+
+  - Perulangan DoWhile
+
+  ```PHP
+  <h3>Perulangan dowhile</h3>
+    <?php
+    echo "Perulangan 1 sampai 10 <br />";
+    $i=1;
+    do {
+    echo "Perulangan ke: " . $i . '<br />';
+    $i++;
+    } while ($i<=10);
+    ?>
+  ```
+
+  ![Loop](images/DoWhile.png)
 
 Dengan mengikuti langkah-langkah di atas, Anda dapat mulai belajar dan mengembangkan aplikasi web menggunakan PHP. Selamat mencoba!
 
