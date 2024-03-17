@@ -241,56 +241,61 @@ Dengan mengikuti langkah-langkah di atas, Anda dapat mulai belajar dan mengemban
 
 # `Tugas Praktikum`
 
-Buat program sederhana untuk menambahkan data kedalam sebuah list dengan rincian sebagai berikut:
-
-> • Progam meminta memasukkan data sebanyak-banyaknya (gunakan perulangan)<br>
-> • Tampilkan pertanyaan untuk menambah data (y/t?), apabila jawaban t (Tidak), maka program akan menampilkan daftar datanya. • Nilai Akhir diambil dari perhitungan 3 komponen nilai (tugas: 30%, uts: 35%, uas: 35%)<br>
-> • Buat flowchart dan penjelasan programnya<br>
-
-## `Flowchart`
-
-![img](img//4.png)
+Buatlah program PHP sederhana dengan menggunakan form input yang menampilkan nama, tanggal
+lahir dan pekerjaan. Kemudian tampilkan outputnya dengan menghitung umur berdasarkan inputan
+tanggal lahir. Dan pilihan pekerjaan dengan gaji yang berbeda-beda sesuai pilihan pekerjaan.
 
 ## `Code`
 
-```python
-    # import package tabulate
-    from tabulate import tabulate
+```PHP
+    <h2>Latihan Pemrograman Web 2</h2>
 
-    # membuat list kosong untuk menampung data
-    dataMahasiswa = []
-    no = 0
+<form method="POST">
+    <label for="name">Nama :</label>
+    <input type="text" name="nama"> <br><br>
+    <label for="date">Tanggal lahir :</label>
+    <input type="date" name="date"> <br><br>
+    <label for="pekerjaan">Pekerjaan :</label>
+    <select name="pekerjaan">
+        <option value="Karyawan">Karyawan</option>
+        <option value="Guru">Guru</option>
+        <option value="Dokter">Dokter</option>
+    </select><br><br>
+    <input type="submit" value="Kirim!"> <br><br>
+</form>
 
-    # melakukan perulangan input sesuai keinginan sampai pertanyaan tambah data dimunculkan kembali
-    while(True):
-    # membuat variable untuk menampung inputan
-        no += 1
-        nama = input("Masukan Nama : ")
-        nim = input("Masukan NIM : ")
-        tugas = float(input("Masukan Nilai Tugas : "))
-        uts = float(input("Masukan Nilai UTS : "))
-        uas = float(input("Masukan Nilai UAS : "))
+<?php
+$nama = $_POST['nama'];
+$tanggalLahir = date("d F Y", strtotime($_POST['date']));
+$pekerjaan = $_POST['pekerjaan'];
+$tahunlahir = date("Y", strtotime($_POST['date']));
+$tahunsekarang = date('Y');
+$umur = $tahunsekarang - $tahunlahir;
 
-    # menjumlahkan nilai dari tugas,uts dan uas
-        nilaiAkhir = (tugas * 30 / 100) + (uts * 35 / 100) + (uas * 35 / 100)
+switch ($pekerjaan) {
+    case "Dokter":
+       $gaji = '7.000.000';
+       break;
+    case "Karyawan":
+       $gaji = '5.000.000';
+       break;
+    case "Guru":
+       $gaji = '3.000.000';
+       break;
+    default:
+       $gaji = 0;
+}
 
-    # menambahkan data input ke list dataMahasiswa
-        dataMahasiswa.append(
-            [no, nama, nim, tugas, uts, uas, nilaiAkhir])
-
-    # input tambah data jika tekan y maka input kembali, selain itu berhenti dan tampilkan data
-        tambahData = input("Tambah Data? (y/t) : ")
-        if(tambahData == "t"):
-            break
-
-    # tampilkan dataMahasiswa menggunakan tabulate package agar tampilan berbentuk table
-
-    print(tabulate(dataMahasiswa, headers=[
-        "No", "Nama", "Nim", "Tugas", "UTS", "UAS", "Nilai Akhir"], tablefmt="fancy_grid"))
+echo 'Nama : ' . $nama . '<br>';
+echo 'Tanggal Lahir : ' . $tanggalLahir . '<br>';
+echo 'Umur : ' . $umur . '<br>';
+echo 'Pekerjaan : ' . $pekerjaan . '<br>';
+echo 'Gaji Perbulan : ' . $gaji;
+?>
 ```
 
 ## `Hasil`
 
-![img](img//3.png)
+![img](images/latihan.png)
 
 ### Terimakasih...
